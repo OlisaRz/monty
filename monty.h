@@ -3,6 +3,9 @@
 
 /* header files */
 #include <stdio.h>
+#include <unistd.h>
+#include <sys/stat.h>
+#include <sys/types.h>
 #include <stdlib.h>
 
 /**
@@ -35,3 +38,5 @@ typedef struct instruction_s
         char *opcode;
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+
+#endif
