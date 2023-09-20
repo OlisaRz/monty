@@ -1,8 +1,8 @@
 #include "monty.h"
 
 /**
- * Opc_swap - swaps the top two elements of the stack.
- * @head: pointer to head node address
+ * Opc_swap - changes the top two elements of the stack.
+ * @head: points the head node address
  * @line_number: specific line number
  *
  */
@@ -25,8 +25,8 @@ void Opc_swap(stack_t **head, unsigned int line_number)
 }
 
 /**
- * Opc_add - adds the top two elements of the stack.
- * @head: pointer to head node address
+ * Opc_add - appends the top two elements of the stack.
+ * @head: points the head node address
  * @line_number: specific line number
  *
  */
@@ -50,9 +50,9 @@ void Opc_add(stack_t **head, unsigned int line_number)
 }
 
 /**
- * Opc_nop - performs nothing
- * @head: unused
- * @line_number: unused
+ * Opc_nop - executes nothing
+ * @head: nonfunctioning
+ * @line_number: nonfunctioning
  */
 void Opc_nop(stack_t **head, unsigned int line_number)
 {
@@ -61,9 +61,9 @@ void Opc_nop(stack_t **head, unsigned int line_number)
 }
 
 /**
- * Opc_sub - subtracts the top element of the stack from
+ * Opc_sub - removes the top element of the stack from
  * the second top element of the stack.
- * @head: pointer to head node
+ * @head: points the head node
  * @line_number: specific line number
  */
 void Opc_sub(stack_t **head, unsigned int line_number)
@@ -86,7 +86,7 @@ void Opc_sub(stack_t **head, unsigned int line_number)
 }
 
 /**
- * Opc_div - divides the second top element of the stack
+ * Opc_div - splites the second top element of the stack
  * by the top element of the stack.
  * @head: pointer to pointer to node
  * @line_number: specific line number
