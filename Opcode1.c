@@ -4,7 +4,6 @@ static char *opcode_type =  "stack";
 /**
  * Opc_rotl - rotates the stack to the top.
  * @head: pointer to pointer to node
- * @Errormngt: addressed errors
  * @line_number: line number
  */
 void Opc_rotl(stack_t **head, unsigned int line_number)

@@ -63,10 +63,7 @@ typedef struct opcode
 
 /* function declarations for Monty project */
 
-/**
-* @Errormngt - handles errors in the code
-* Description: resolves errors
-*/
+/* Errormngt handles errors in the code*/
 
 void Errormngt(int, char *, int);
 
