@@ -1,12 +1,12 @@
 #include "monty.h"
 
 /**
- * Func_swap - swaps the top two elements of the stack.
+ * Opc_swap - swaps the top two elements of the stack.
  * @head: pointer to head node address
  * @line_number: specific line number
  *
  */
-void Func_swap(stack_t **head, unsigned int line_number)
+void Opc_swap(stack_t **head, unsigned int line_number)
 {
 	stack_t *dir = *head, *prev = NULL;
 	int temp;
@@ -25,12 +25,12 @@ void Func_swap(stack_t **head, unsigned int line_number)
 }
 
 /**
- * Func_add - adds the top two elements of the stack.
+ * Opc_add - adds the top two elements of the stack.
  * @head: pointer to head node address
  * @line_number: specific line number
  *
  */
-void Func_add(stack_t **head, unsigned int line_number)
+void Opc_add(stack_t **head, unsigned int line_number)
 {
 	stack_t *dir = *head, *prev = NULL;
 	int result;
@@ -50,23 +50,23 @@ void Func_add(stack_t **head, unsigned int line_number)
 }
 
 /**
- * Func_nop - performs nothing
+ * Opc_nop - performs nothing
  * @head: unused
  * @line_number: unused
  */
-void Func_nop(stack_t **head, unsigned int line_number)
+void Opc_nop(stack_t **head, unsigned int line_number)
 {
 	(void)head;
 	(void)line_number;
 }
 
 /**
- * Func_sub - subtracts the top element of the stack from
+ * Opc_sub - subtracts the top element of the stack from
  * the second top element of the stack.
  * @head: pointer to head node
  * @line_number: specific line number
  */
-void Func_sub(stack_t **head, unsigned int line_number)
+void Opc_sub(stack_t **head, unsigned int line_number)
 {
 	stack_t *dir = *head, *prev = NULL;
 	int result;
@@ -86,12 +86,12 @@ void Func_sub(stack_t **head, unsigned int line_number)
 }
 
 /**
- * Func_div - divides the second top element of the stack
+ * Opc_div - divides the second top element of the stack
  * by the top element of the stack.
  * @head: pointer to pointer to node
  * @line_number: specific line number
  */
-void Func_div(stack_t **head, unsigned int line_number)
+void Opc_div(stack_t **head, unsigned int line_number)
 {
 	stack_t *dir = *head, *prev = NULL;
 	int result;

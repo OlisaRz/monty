@@ -7,11 +7,12 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <stdlib.h>
+#include <errno.h>
 #include <fcntl.h>
 #include <ctype.h>
 #include <string.h>
 
-#define READSIZE 1024
+#define SIZE 1024
 #define EXIT exit(EXIT_FAILURE)
 
 extern int stack_value;
@@ -44,46 +45,59 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+
 /**
- * struct opcode - opcode name and value
- * @opcode_name: name of the opcode instruction
- * @opcode_value: value argumnent of the opcode
+ * struct opcode - opcode identity plus value
+ * @opcode_identity: identity of the opcode function
+ * @opcode_value: value of opcode given
  *
- * Description: To be ble to store the opcode instruction and value
- * for the stack, queue, LIFO, FIFO
+ * Description: Ability to store opcode identity and value in
+ * stack
  */
+
 typedef struct opcode
 {
-	char *opcode_name;
+	char *opcode_identity;
 	int opcode_value;
 } opcode_t;
 
-/* function declaration */
-void ErrorHandler(int, char *, int);
+/* function declarations for Monty project */
+
+/**
+* @Errormngt - handles errors in the code
+* Description: resolves errors
+*/
+
+void Errormngt(int, char *, int);
+
 char **_strtokenize(char *);
-int StrCountWord(char *, char *);
-opcode_t *StrtokenizLineCommand(char *, unsigned int);
-void Func_push(stack_t **, unsigned int);
-void Func_pall(stack_t **, unsigned int);
-void Func_pop(stack_t **, unsigned int);
-void Func_pint(stack_t **, unsigned int);
-void Func_swap(stack_t **, unsigned int);
-void Func_add(stack_t **, unsigned int);
-void Func_nop(stack_t **, unsigned int);
-void Func_sub(stack_t **, unsigned int);
-void Func_div(stack_t **, unsigned int);
-void Func_mul(stack_t **, unsigned int);
-void Func_mod(stack_t **, unsigned int);
-void Func_pchar(stack_t **, unsigned int);
-void Func_pstr(stack_t **, unsigned int);
-void Func_rotl(stack_t **, unsigned int);
-void Func_rotr(stack_t **, unsigned int);
+
+int Strcount(char *, char *);
+
+opcode_t *Strtokenizationcommand(char *, unsigned int);
+
+void Opc_push(stack_t **stack, unsigned int line_number);
+void Opc_pall(stack_t **stack, unsigned int line_number);
+void Opc_pop(stack_t **stack, unsigned int line_number);
+void Opc_pint(stack_t **stack, unsigned int line_number);
+void Opc_swap(stack_t **stack, unsigned int line_number);
+void Opc_add(stack_t **stack, unsigned int line_number);
+void Opc_nop(stack_t **stack, unsigned int line_number);
+void Opc_sub(stack_t **stack, unsigned int line_number);
+void Opc_div(stack_t **stack, unsigned int line_number);
+void Opc_mul(stack_t **stack, unsigned int line_number);
+void Opc_mod(stack_t **stack, unsigned int line_number);
+void Opc_pchar(stack_t **stack, unsigned int line_number);
+void Opc_pstr(stack_t **stack, unsigned int line_number);
+void Opc_rotl(stack_t **stack, unsigned int line_number);
+void Opc_rotr(stack_t **stack, unsigned int line_number);
+
 void free_stack(stack_t **);
-void Handle_stack(stack_t **, unsigned int);
-void Handle_queue(stack_t **, unsigned int);
+void Handle_stack(stack_t **stack, unsigned int line_number);
+void Handle_queue(stack_t **stack, unsigned int line_number);
+
 int rotr_rec(stack_t *, stack_t **);
 int _isascii(int);
 int CountStack(stack_t **);
+
 #endif
-
-

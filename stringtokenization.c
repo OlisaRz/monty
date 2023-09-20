@@ -13,16 +13,16 @@ char **_strtokenize(char *readptr)
 	int count, index = 0;
 
 	strcpy(copy_readptr, readptr);
-	count =  StrCountWord(copy_readptr, delim);
+	count =  Strcount(copy_readptr, delim);
 	argument = malloc(sizeof(char *) * (count + 1));
 	if (!argument)
-		ErrorHandler(3, NULL, 0);
+		Errormngt(3, NULL, 0);
 	token = strtok(readptr, delim);
 	while (token)
 	{
 		argument[index] = malloc(sizeof(char) * strlen(token));
 		if (!argument[index])
-			ErrorHandler(3, NULL, 0);
+			Errormngt(3, NULL, 0);
 		strcpy(argument[index], token);
 		index++;
 		token = strtok(NULL, delim);
@@ -32,25 +32,25 @@ char **_strtokenize(char *readptr)
 	return (argument);
 }
 /**
- * StrtokenizLineCommand - removes spaces and separates
+ * Strtokenizationcommand - removes spaces and separates
  * command and value
  * @argv: argument passed to function
  * @line_number: specific line being tokenized
  * Return: new argument(command)
  *
  */
-opcode_t *StrtokenizLineCommand(char *argv, unsigned int line_number)
+opcode_t *Strtokenizationcommand(char *argv, unsigned int line_number)
 {
 	char *delim = " ", *token = NULL;
 	opcode_t *opcode_new = NULL;
 
 	opcode_new =  malloc(sizeof(opcode_t));
 	if (!opcode_new)
-		ErrorHandler(3, NULL, 0);
+		Errormngt(3, NULL, 0);
 	token = strtok(argv, delim);
-	opcode_new->opcode_name = token;
+	opcode_new->opcode_identity = token;
 	token = strtok(NULL, delim);
-	if (!strcmp(opcode_new->opcode_name, "push"))
+	if (!strcmp(opcode_new->opcode_identity, "push"))
 	{
 		if (!token || !isdigit(*token))
 		{
@@ -64,12 +64,12 @@ opcode_t *StrtokenizLineCommand(char *argv, unsigned int line_number)
 }
 
 /**
- * StrCountWord - returns number of arguments
+ * Strcount - returns number of arguments
  * @word: string passed to function
  * @delim: delimeter
  * Return: number of args
  */
-int StrCountWord(char *word, char *delim)
+int Strcount(char *word, char *delim)
 {
 	char *token = NULL;
 	int count = 0;

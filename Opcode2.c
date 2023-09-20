@@ -15,11 +15,11 @@ void pall_rec(stack_t *head)
 }
 
 /**
- * Func_pall - prints all elements in stack
+ * Opc_pall - prints all elements in stack
  * @head: pointer to head node
  * @line_number: line number
  */
-void Func_pall(stack_t **head, unsigned int line_number)
+void Opc_pall(stack_t **head, unsigned int line_number)
 {
 	if (!*head)
 		return;
@@ -28,18 +28,18 @@ void Func_pall(stack_t **head, unsigned int line_number)
 }
 
 /**
- * Func_pop - removes last element from stack
+ * Opc_pop - removes last element from stack
  * @head: pointer to head node address
  * @line_number: specific line
  */
-void Func_pop(stack_t **head, unsigned int line_number)
+void Opc_pop(stack_t **head, unsigned int line_number)
 {
 	int count;
 	stack_t *dir = *head;
 
 	count = CountStack(head);
 	if (!count)
-		ErrorHandler(5, NULL, line_number);
+		Errormngt(5, NULL, line_number);
 	else if (count == 1)
 	{
 		free(*head);
@@ -53,11 +53,11 @@ void Func_pop(stack_t **head, unsigned int line_number)
 }
 
 /**
- * Func_pint - prints element at top of stack
+ * Opc_pint - prints element at top of stack
  * @head: pointer to head node address
  * @line_number: specific line number
  */
-void Func_pint(stack_t **head, unsigned int line_number)
+void Opc_pint(stack_t **head, unsigned int line_number)
 {
 	stack_t *dir = *head;
 
@@ -71,11 +71,11 @@ void Func_pint(stack_t **head, unsigned int line_number)
 	printf("%d\n", dir->n);
 }
 /**
- * Func_rotr - rottate the first value to the last value
+ * Opc_rotr - rottate the first value to the last value
  * @head: head pointer
  * @line_number: line number for errors
  */
-void Func_rotr(stack_t **head, unsigned int line_number)
+void Opc_rotr(stack_t **head, unsigned int line_number)
 {
 	stack_t *dir = *head;
 
