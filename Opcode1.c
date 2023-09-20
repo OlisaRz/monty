@@ -28,9 +28,9 @@ void Opc_rotl(stack_t **head, unsigned int line_number)
 	temp_ptr->next = NULL;
 }
 /**
- * Handle_stack - change the opcode_type to stack layout
+ * Handle_stack - modifies the opcode_type to stack layout
  * @head: head pointer
- * @line_number: line_number of instruction
+ * @line_number: line_number of directives
  */
 void Handle_stack(stack_t **head, unsigned int line_number)
 {
@@ -40,9 +40,9 @@ void Handle_stack(stack_t **head, unsigned int line_number)
 		opcode_type = "stack";
 }
 /**
- * Handle_queue - change the opcode_typr to queue layout
+ * Handle_queue - modifies the opcode_typr to queue layout
  * @head: head pointer
- * @line_number: line_number of instruction
+ * @line_number: line_number of directives
  */
 void Handle_queue(stack_t **head, unsigned int line_number)
 {
@@ -52,7 +52,7 @@ void Handle_queue(stack_t **head, unsigned int line_number)
 		opcode_type =  "queue";
 }
 /**
- * Opc_push - inserts a value into stack
+ * Opc_push - appends a value into stack
  * @head: pointer to head node address
  * @line_number: line number
  */
@@ -87,8 +87,8 @@ void Opc_push(stack_t **head, unsigned int line_number)
 	}
 }
 /**
- * rotr_rec - recursion function to help rotate the stack
- * @head: hold the address of pointer to stack_t
+ * rotr_rec - recursion function to facilitates rotation of stack
+ * @head: grasps the address of pointer to stack_t
  * @start: hold the address of the first linked list element
  *
  * Return: return 1 if True and 0 otherwise
