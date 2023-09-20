@@ -24,7 +24,7 @@ void Opc_mul(stack_t **head, unsigned int line_number)
 	prev->next = NULL;
 }
 /**
- * Opc_mod - computes the rest of the division of the second top
+ * Opc_mod - tallys the rest of the division of the second top
  * element of the stack by the top element of the stack.
  * @head: pointer to pointer to node
  * @line_number: line number
@@ -53,8 +53,8 @@ void Opc_mod(stack_t **head, unsigned int line_number)
 	prev->next = NULL;
 }
 /**
- * Errormngt - handle errors in the program
- * @error_number: unique error number for different error
+ * Errormngt - manages errors in the program
+ * @error_number: distinct error number for different error
  * @arg: string needle for the error
  *
  * @line_number: line number
