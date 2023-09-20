@@ -11,7 +11,7 @@
 #include <ctype.h>
 #include <string.h>
 
-#define SIZE 1024
+#define READSIZE 1024
 #define EXIT exit(EXIT_FAILURE)
 
 extern int stack_value;
