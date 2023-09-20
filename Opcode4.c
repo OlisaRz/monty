@@ -53,14 +53,14 @@ void Opc_mod(stack_t **head, unsigned int line_number)
 	prev->next = NULL;
 }
 /**
- * ErrorHandler - handle errors	 in the program
+ * Errormngt - handle errors in the program
  * @error_number: unique error number for different error
  * @arg: string needle for the error
  *
  * @line_number: line number
  * Return: return void
  */
-void ErrorHandler(int error_number, char *arg, int line_number)
+void Errormngt(int error_number, char *arg, int line_number)
 {
 	switch (error_number)
 	{
