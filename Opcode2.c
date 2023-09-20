@@ -1,24 +1,30 @@
 #include "monty.h"
-
-/** _pall - prints all the values on stack
-*
-* @stack: head of the linked list
-* @line_number: line number
-* Return: no return
-*/ 
-
-
-void Func_pall(stack_t **stack, unsigned int line_number)
+/**
+ * pall_rec - recursive function to print stack elements
+ *
+ * @head: pointer to head node
+ *
+ */
+static
+void pall_rec(stack_t *head)
 {
-    stack_t *current = *stack;
+	if (!head)
+		return;
+	pall_rec(head->next);
+	printf("%d\n", head->n);
+}
 
-    (void)line_number;
-
-    while (current)
-    {
-        printf("%d\n", current->n);
-        current = current->next;
-    }
+/**
+ * Func_pall - prints all elements in stack
+ * @head: pointer to head node
+ * @line_number: line number
+ */
+void Func_pall(stack_t **head, unsigned int line_number)
+{
+	if (!*head)
+		return;
+	(void)line_number;
+	pall_rec(*head);
 }
 
 /**
