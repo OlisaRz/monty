@@ -1,6 +1,6 @@
 #include "monty.h"
 /**
- * pall_rec - recursive function to print stack elements
+ * pall_rec - periodic  function to print stack elements
  *
  * @head: pointer to head node
  *
@@ -17,7 +17,7 @@ void pall_rec(stack_t *head)
 /**
  * Opc_pall - prints all elements in stack
  * @head: pointer to head node
- * @line_number: line number
+ * @line_number: line number identifier
  */
 void Opc_pall(stack_t **head, unsigned int line_number)
 {
@@ -29,8 +29,8 @@ void Opc_pall(stack_t **head, unsigned int line_number)
 
 /**
  * Opc_pop - removes last element from stack
- * @head: pointer to head node address
- * @line_number: specific line
+ * @head: points the head node address
+ * @line_number: specific line identity
  */
 void Opc_pop(stack_t **head, unsigned int line_number)
 {
@@ -53,9 +53,9 @@ void Opc_pop(stack_t **head, unsigned int line_number)
 }
 
 /**
- * Opc_pint - prints element at top of stack
- * @head: pointer to head node address
- * @line_number: specific line number
+ * Opc_pint - prints the topmost element of the stack
+ * @head: points the head node address
+ * @line_number: specific line number identity
  */
 void Opc_pint(stack_t **head, unsigned int line_number)
 {
@@ -71,7 +71,7 @@ void Opc_pint(stack_t **head, unsigned int line_number)
 	printf("%d\n", dir->n);
 }
 /**
- * Opc_rotr - rottate the first value to the last value
+ * Opc_rotr - revolve the first value to the last value
  * @head: head pointer
  * @line_number: line number for errors
  */
