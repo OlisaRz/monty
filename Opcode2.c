@@ -19,19 +19,6 @@ void Opc_pint(stack_t **head, unsigned int line_number)
 }
 
 /**
- * Opc_pall - prints all elements in stack
- * @head: pointer to head node
- * @line_number: line number identifier
- */
-void Opc_pall(stack_t **head, unsigned int line_number)
-{
-	if (!*head)
-		return;
-	(void)line_number;
-	pall_rec(*head);
-}
-
-/**
  * Opc_pop - removes last element from stack
  * @head: points the head node address
  * @line_number: specific line identity
@@ -69,6 +56,19 @@ void pall_rec(stack_t *head)
 		return;
 	pall_rec(head->next);
 	printf("%d\n", head->n);
+}
+
+/**
+ * Opc_pall - prints all elements in stack
+ * @head: pointer to head node
+ * @line_number: line number identifier
+ */
+void Opc_pall(stack_t **head, unsigned int line_number)
+{
+	if (!*head)
+		return;
+	(void)line_number;
+	pall_rec(*head);
 }
 
 /**
