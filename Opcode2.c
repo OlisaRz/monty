@@ -1,17 +1,21 @@
 #include "monty.h"
 /**
- * pall_rec - periodic  function to print stack elements
- *
- * @head: pointer to head node
- *
+ * Opc_pint - prints the topmost element of the stack
+ * @head: points the head node address
+ * @line_number: specific line number identity
  */
-static
-void pall_rec(stack_t *head)
+void Opc_pint(stack_t **head, unsigned int line_number)
 {
-	if (!head)
-		return;
-	pall_rec(head->next);
-	printf("%d\n", head->n);
+	stack_t *dir = *head;
+
+	if (!CountStack(head))
+	{
+		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
+		EXIT;
+	}
+	while (dir->next)
+		dir = dir->next;
+	printf("%d\n", dir->n);
 }
 
 /**
@@ -53,23 +57,20 @@ void Opc_pop(stack_t **head, unsigned int line_number)
 }
 
 /**
- * Opc_pint - prints the topmost element of the stack
- * @head: points the head node address
- * @line_number: specific line number identity
+ * pall_rec - periodic  function to print stack elements
+ *
+ * @head: pointer to head node
+ *
  */
-void Opc_pint(stack_t **head, unsigned int line_number)
+static
+void pall_rec(stack_t *head)
 {
-	stack_t *dir = *head;
-
-	if (!CountStack(head))
-	{
-		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
-		EXIT;
-	}
-	while (dir->next)
-		dir = dir->next;
-	printf("%d\n", dir->n);
+	if (!head)
+		return;
+	pall_rec(head->next);
+	printf("%d\n", head->n);
 }
+
 /**
  * Opc_rotr - revolve the first value to the last value
  * @head: head pointer
