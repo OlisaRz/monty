@@ -1,8 +1,8 @@
 #include "monty.h"
 
 /**
- * _strtokenize - checks for end of line for command
- * @readptr: pointer to command
+ * _strtokenize - checks EOL
+ * @readptr: pointer to specific command
  * Return: pointer to pointer
  *
  */
@@ -32,11 +32,11 @@ char **_strtokenize(char *readptr)
 	return (argument);
 }
 /**
- * Strtokenizationcommand - removes spaces and separates
- * command and value
- * @argv: argument passed to function
- * @line_number: specific line being tokenized
- * Return: new argument(command)
+ * Strtokenizationcommand - Eliminates spaces and distinguishes
+ * between the command and its corresponding value
+ * @argv: argument passed 
+ * @line_number: specific line for tokenization
+ * Return: new arg command
  *
  */
 opcode_t *Strtokenizationcommand(char *argv, unsigned int line_number)
@@ -64,10 +64,10 @@ opcode_t *Strtokenizationcommand(char *argv, unsigned int line_number)
 }
 
 /**
- * Strcount - returns number of arguments
- * @word: string passed to function
+ * Strcount - returns argument count
+ * @word: string passed to specific function
  * @delim: delimeter
- * Return: number of args
+ * Return: argumets passed
  */
 int Strcount(char *word, char *delim)
 {

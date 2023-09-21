@@ -1,9 +1,9 @@
 #include "monty.h"
 
 /**
- * CountStack - counts number of elements in stack
- * @head: pointer to pointer to head node
- * Return: element count
+ * CountStack - counts elements in stack
+ * @head: pointer to pointer pointing head node
+ * Return: count
  */
 int CountStack(stack_t **head)
 {
@@ -20,8 +20,8 @@ int CountStack(stack_t **head)
 	return (count);
 }
 /**
- * free_stack - frees stack memory
- * @head: pointer to address of head node
+ * free_stack - free memory
+ * @head: pointer to head node address
  *
  */
 void free_stack(stack_t **head)
@@ -37,8 +37,8 @@ void free_stack(stack_t **head)
 }
 
 /**
- * _isascii - returns int
- * @c: character passed to function
+ * _isascii - return int
+ * @c: char passed to function
  * Return: 0
  *
  */

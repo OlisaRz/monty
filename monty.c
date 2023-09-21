@@ -3,9 +3,9 @@ int stack_value;
 static unsigned int line_number = 1;
 
 /**
- * HandleComment - ignores comments
+ * HandleComment - disregard comments
  * @token: pointer to pointer
- * Return: new token without #
+ * Return: token excluding the #
  */
 static
 char **HandleComment(char **token)
@@ -39,7 +39,7 @@ char **HandleComment(char **token)
 
 
 /**
- * initialize_opcode - links opcode with various functions
+ * initialize_opcode - link the opcode with different function
  * Return: pointer to command
  */
 static
@@ -71,8 +71,9 @@ instruction_t *initialize_opcode()
 }
 
 /**
- * call_opc - gets command from pointer and executes function
- * @argv: pointer to address of line command
+ * call_opc - receives input from pointer
+ * and performs specific command
+ * @argv: pointer to line command address
  */
 static
 void call_opc(char **argv)
@@ -112,11 +113,11 @@ void call_opc(char **argv)
 }
 
 /**
- * main - main program of the motty
- * @argc: number of argumant to the program
- * @argv: argument to the program
+ * main - main monty program
+ * @argc: number of arguments passed
+ * @argv: argument vector
  *
- * Return: return integer value
+ * Return: return integer
  */
 int main(int argc, char *argv[])
 {
