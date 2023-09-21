@@ -72,7 +72,7 @@ char **_strtokenize(char *);
 int Strcount(char *, char *);
 
 opcode_t *Strtokenizationcommand(char *, unsigned int);
-
+void Handle_queue(stack_t **stack, unsigned int line_number);
 void Opc_push(stack_t **stack, unsigned int line_number);
 void Opc_pall(stack_t **stack, unsigned int line_number);
 void Opc_pop(stack_t **stack, unsigned int line_number);
@@ -81,6 +81,7 @@ void Opc_swap(stack_t **stack, unsigned int line_number);
 void Opc_add(stack_t **stack, unsigned int line_number);
 void Opc_nop(stack_t **stack, unsigned int line_number);
 void Opc_sub(stack_t **stack, unsigned int line_number);
+void free_stack(stack_t **);
 void Opc_div(stack_t **stack, unsigned int line_number);
 void Opc_mul(stack_t **stack, unsigned int line_number);
 void Opc_mod(stack_t **stack, unsigned int line_number);
@@ -89,12 +90,9 @@ void Opc_pstr(stack_t **stack, unsigned int line_number);
 void Opc_rotl(stack_t **stack, unsigned int line_number);
 void Opc_rotr(stack_t **stack, unsigned int line_number);
 
-void free_stack(stack_t **);
 void Handle_stack(stack_t **stack, unsigned int line_number);
-void Handle_queue(stack_t **stack, unsigned int line_number);
-
 int rotr_rec(stack_t *, stack_t **);
-int _isascii(int);
+int _forascii(int);
 int CountStack(stack_t **);
 
 #endif

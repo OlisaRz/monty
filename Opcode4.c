@@ -115,7 +115,7 @@ void Opc_pchar(stack_t **head, unsigned int line_number)
 	}
 	while (dir->next)
 		dir = dir->next;
-	if (!_isascii(dir->n))
+	if (!_forascii(dir->n))
 	{
 		fprintf(stderr, "L%u: can't pchar, value out of range\n", line_number);
 		EXIT;
@@ -141,7 +141,7 @@ void Opc_pstr(stack_t **head, unsigned int line_number)
 		dir = dir->next;
 	for (count = count; dir; dir = dir->prev, count--)
 	{
-		if (!count || !dir->n || !_isascii(dir->n))
+		if (!count || !dir->n || !_forascii(dir->n))
 			goto next;
 		printf("%c",  dir->n);
 	}

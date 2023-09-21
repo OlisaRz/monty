@@ -1,6 +1,19 @@
 #include "monty.h"
 
 /**
+ * _forascii - return int
+ * @c: char passed to function
+ * Return: 0
+ *
+ */
+int _forascii(int c)
+{
+	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
+		return (1);
+	return (0);
+}
+
+/**
  * CountStack - counts elements in stack
  * @head: pointer to pointer pointing head node
  * Return: count
@@ -34,17 +47,4 @@ void free_stack(stack_t **head)
 		free(temp);
 		temp = *head;
 	}
-}
-
-/**
- * _isascii - return int
- * @c: char passed to function
- * Return: 0
- *
- */
-int _isascii(int c)
-{
-	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
-		return (1);
-	return (0);
 }
