@@ -34,7 +34,7 @@ char **_strtokenize(char *readptr)
 /**
  * Strtokenizationcommand - Eliminates spaces and distinguishes
  * between the command and its corresponding value
- * @argv: argument passed 
+ * @argv: argument passed
  * @line_number: specific line for tokenization
  * Return: new arg command
  *
