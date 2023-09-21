@@ -1,30 +1,6 @@
 #include "monty.h"
 
 /**
- * Opc_swap - changes the top two elements of the stack.
- * @head: points the head node address
- * @line_number: specific line number
- *
- */
-void Opc_swap(stack_t **head, unsigned int line_number)
-{
-	stack_t *dir = *head, *prev = NULL;
-	int temp;
-
-	if (CountStack(head) < 2)
-	{
-		fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
-		EXIT;
-	}
-	while (dir->next)
-		dir = dir->next;
-	prev =  dir->prev;
-	temp  = prev->n;
-	prev->n = dir->n;
-	dir->n = temp;
-}
-
-/**
  * Opc_add - appends the top two elements of the stack.
  * @head: points the head node address
  * @line_number: specific line number
@@ -47,6 +23,30 @@ void Opc_add(stack_t **head, unsigned int line_number)
 	prev->n = result;
 	free(dir);
 	prev->next = NULL;
+}
+
+/**
+ * Opc_swap - changes the top two elements of the stack.
+ * @head: points the head node address
+ * @line_number: specific line number
+ *
+ */
+void Opc_swap(stack_t **head, unsigned int line_number)
+{
+	stack_t *dir = *head, *prev = NULL;
+	int temp;
+
+	if (CountStack(head) < 2)
+	{
+		fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
+		EXIT;
+	}
+	while (dir->next)
+		dir = dir->next;
+	prev =  dir->prev;
+	temp  = prev->n;
+	prev->n = dir->n;
+	dir->n = temp;
 }
 
 /**
