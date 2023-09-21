@@ -42,27 +42,27 @@ instruction_t *initialize_opcode()
 static
 char **HandleComment(char **token)
 {
-	size_t i = 0, indx = 0;
+	size_t x = 0, indx = 0;
 	char **new_token = NULL;
 
-	while (token[i])
-		i++;
-	new_token = malloc(sizeof(char *) * (i + 1));
+	while (token[x])
+		x++;
+	new_token = malloc(sizeof(char *) * (x + 1));
 	if (!new_token)
 		Errormngt(3, NULL, 0);
-	i = 0;
-	while (token[i])
+	x = 0;
+	while (token[x])
 	{
-		if (*(token[i]) == '#')
+		if (*(token[x]) == '#')
 		{
-			free(token[i]);
+			free(token[x]);
 			line_number++;
 		} else
 		{
-			new_token[indx] = token[i];
+			new_token[indx] = token[x];
 			indx++;
 		}
-		i++;
+		x++;
 	}
 	new_token[indx] = NULL;
 	free(token);
@@ -77,34 +77,34 @@ char **HandleComment(char **token)
 static
 void call_opc(char **argv)
 {
-	size_t i = 0, j, check = 0;
+	size_t x = 0, y, check = 0;
 	instruction_t *opc  = NULL;
 	opcode_t *opcode_info = NULL;
 	stack_t *head = NULL;
 
 	opc = initialize_opcode();
-	while (argv[i])
+	while (argv[x])
 	{
-		opcode_info = Strtokenizationcommand(argv[i], line_number);
-		j  = 0;
-		while (opc[j].opcode)
+		opcode_info = Strtokenizationcommand(argv[x], line_number);
+		y  = 0;
+		while (opc[y].opcode)
 		{
-			if (!strcmp(opc[j].opcode, opcode_info->opcode_identity))
+			if (!strcmp(opc[y].opcode, opcode_info->opcode_identity))
 			{
 				stack_value = opcode_info->opcode_value;
-				opc[j].f(&head, line_number);
+				opc[y].f(&head, line_number);
 				check = 1;
 				break;
 			}
-			j++;
+			y++;
 		}
 		if (!check)
 			Errormngt(4, opcode_info->opcode_identity, line_number);
 		line_number++;
 		free(opcode_info);
-		free(argv[i]);
+		free(argv[x]);
 		opcode_info = NULL;
-		i++;
+		x++;
 		check = 0;
 	}
 	free(argv);
