@@ -3,6 +3,38 @@ int stack_value;
 static unsigned int line_number = 1;
 
 /**
+ * initialize_opcode - link the opcode with different function
+ * Return: pointer to command
+ */
+static
+instruction_t *initialize_opcode()
+{
+	static instruction_t opc[] = {
+		{"push", Opc_push},
+		{"pall", Opc_pall},
+		{"swap", Opc_swap},
+		{"pint", Opc_pint},
+		{"pop", Opc_pop},
+		{"pint", Opc_pint},
+		{"swap", Opc_swap},
+		{"add", Opc_add},
+		{"sub", Opc_sub},
+		{"div", Opc_div},
+		{"mul", Opc_mul},
+		{"mod", Opc_mod},
+		{"pchar", Opc_pchar},
+		{"nop", Opc_nop},
+		{"pstr", Opc_pstr},
+		{"rotl", Opc_rotl},
+		{"stack", Handle_stack},
+		{"queue", Handle_queue},
+		{"rotr", Opc_rotr},
+		{'\0', NULL}
+	};
+	return (opc);
+}
+
+/**
  * HandleComment - disregard comments
  * @token: pointer to pointer
  * Return: token excluding the #
@@ -35,39 +67,6 @@ char **HandleComment(char **token)
 	new_token[indx] = NULL;
 	free(token);
 	return (new_token);
-}
-
-
-/**
- * initialize_opcode - link the opcode with different function
- * Return: pointer to command
- */
-static
-instruction_t *initialize_opcode()
-{
-	static instruction_t opc[] = {
-		{"push", Opc_push},
-		{"pall", Opc_pall},
-		{"swap", Opc_swap},
-		{"pint", Opc_pint},
-		{"pop", Opc_pop},
-		{"pint", Opc_pint},
-		{"swap", Opc_swap},
-		{"add", Opc_add},
-		{"sub", Opc_sub},
-		{"div", Opc_div},
-		{"mul", Opc_mul},
-		{"mod", Opc_mod},
-		{"pchar", Opc_pchar},
-		{"nop", Opc_nop},
-		{"pstr", Opc_pstr},
-		{"rotl", Opc_rotl},
-		{"stack", Handle_stack},
-		{"queue", Handle_queue},
-		{"rotr", Opc_rotr},
-		{'\0', NULL}
-	};
-	return (opc);
 }
 
 /**
