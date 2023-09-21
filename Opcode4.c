@@ -1,29 +1,5 @@
 #include "monty.h"
 /**
- * Opc_mul - multiplies the second top element of the stack
- * with the top element of the stack.
- * @head: pointer to pointer to node
- * @line_number: line number
- */
-void Opc_mul(stack_t **head, unsigned int line_number)
-{
-	stack_t *dir = *head, *prev = NULL;
-	int result;
-
-	if (CountStack(head) < 2)
-	{
-		fprintf(stderr,  "L%u: can't mul, stack too short\n", line_number);
-		EXIT;
-	}
-	while (dir->next)
-		dir = dir->next;
-	prev = dir->prev;
-	result = (prev->n) * (dir->n);
-	prev->n = result;
-	free(dir);
-	prev->next = NULL;
-}
-/**
  * Opc_mod - tallys the rest of the division of the second top
  * element of the stack by the top element of the stack.
  * @head: pointer to pointer to node
@@ -95,6 +71,31 @@ void Errormngt(int error_number, char *arg, int line_number)
 			break;
 		}
 	}
+}
+
+/**
+ * Opc_mul - multiplies the second top element of the stack
+ * with the top element of the stack.
+ * @head: pointer to pointer to node
+ * @line_number: line number
+ */
+void Opc_mul(stack_t **head, unsigned int line_number)
+{
+	stack_t *dir = *head, *prev = NULL;
+	int result;
+
+	if (CountStack(head) < 2)
+	{
+		fprintf(stderr,  "L%u: can't mul, stack too short\n", line_number);
+		EXIT;
+	}
+	while (dir->next)
+		dir = dir->next;
+	prev = dir->prev;
+	result = (prev->n) * (dir->n);
+	prev->n = result;
+	free(dir);
+	prev->next = NULL;
 }
 
 /**
