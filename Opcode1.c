@@ -28,18 +28,6 @@ void Opc_rotl(stack_t **head, unsigned int line_number)
 	temp_ptr->next = NULL;
 }
 /**
- * Handle_stack - modifies the opcode_type to stack layout
- * @head: head pointer
- * @line_number: line_number of directives
- */
-void Handle_stack(stack_t **head, unsigned int line_number)
-{
-	(void)head;
-	(void)line_number;
-	if (!strcmp(opcode_type, "queue"))
-		opcode_type = "stack";
-}
-/**
  * Handle_queue - modifies the opcode_typr to queue layout
  * @head: head pointer
  * @line_number: line_number of directives
@@ -85,6 +73,18 @@ void Opc_push(stack_t **head, unsigned int line_number)
 		new_stack->next = *head;
 		*head = new_stack;
 	}
+}
+/**
+ * Handle_stack - modifies the opcode_type to stack layout
+ * @head: head pointer
+ * @line_number: line_number of directives
+ */
+void Handle_stack(stack_t **head, unsigned int line_number)
+{
+	(void)head;
+	(void)line_number;
+	if (!strcmp(opcode_type, "queue"))
+		opcode_type = "stack";
 }
 /**
  * rotr_rec - recursion function to facilitates rotation of stack
